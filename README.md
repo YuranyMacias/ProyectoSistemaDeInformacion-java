@@ -58,5 +58,35 @@ src/
     ├── EstiloUI.java        # Configuración de estilos y diseño visual
     └── Form*.java           # Interfaces gráficas (FormProductos, FormFactura, etc.)
 
+Instalación y Configuración
+Requisitos Previos
+Antes de ejecutar la aplicación, asegúrate de contar con las siguientes herramientas instaladas en tu equipo:
+Java Development Kit (JDK): Versión 17 o superior.
+Servidor de Base de Datos: MySQL Server (gestionado a través de MySQL Workbench, XAMPP o WampServer).
+Entorno de Desarrollo (IDE): NetBeans IDE (versión recomendada) o Visual Studio Code con extensión para Java.
+Controlador JDBC: Conector oficial mysql-connector-j.jar.
 
+ Pasos para la Configuración y Ejecución
+1. Clonar el repositorio
+Abre la terminal o PowerShell y clona el proyecto en tu máquina local:
 
+2. Configurar e Importar la Base de Datos
+Inicia tu servicio de MySQL (por ejemplo, desde el panel de XAMPP o MySQL Workbench).
+Abre tu gestor de MySQL y crea una nueva base de datos para el proyecto.
+Importa el archivo con extensión .sql ubicado dentro del repositorio para generar la estructura de tablas y datos iniciales.
+
+3. Configurar la Conexión JDBC
+Abre el proyecto en tu IDE (NetBeans).
+Dirígete a la clase conectionDB.java ubicada en la ruta src/pruebamysql/conectionDB.java.
+Revisa y ajusta las credenciales de la cadena de conexión según los datos de tu servidor local:
+
+```text
+String url = "jdbc:mysql://localhost:3306/nombre_de_tu_bd";
+String usuario = "tu_usuario";       // Por defecto suele ser "root"
+String contrasena = "tu_contrasena"; // Tu contraseña local de MySQL
+
+4. Cargar Librerías e Iniciar la Aplicación
+En NetBeans, ve al panel de navegación del proyecto, haz clic derecho sobre la carpeta Libraries y selecciona Add JAR/Folder...
+Añade el archivo mysql-connector-j.jar (si no aparece ya vinculado).
+Ubica el archivo Pruebamysql.java dentro del paquete pruebamysql.
+Haz clic derecho sobre Pruebamysql.java y selecciona Run File (o presiona Shift + F6) para lanzar la pantalla de inicio de sesión.
