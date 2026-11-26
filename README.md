@@ -17,15 +17,15 @@ implementar control de acceso según el rol del usuario (Administrador y Vendedo
 ##  Funcionalidades Principales
 
 *  **Autenticación y Control de Acceso (RBAC):**
-  * Inicio de sesión seguro con diferenciación de roles (*Administrador* y *Vendedor*).
-  * Vistas y permisos adaptados según el nivel de acceso del usuario.
+   Inicio de sesión seguro con diferenciación de roles (*Administrador* y *Vendedor*).
+   Vistas y permisos adaptados según el nivel de acceso del usuario.
 *  **Gestión de Inventario y Productos (CRUD):**
-  * Alta, baja, modificación y consulta de prendas de vestir.
-  * Control de stock, categorías y variantes de productos.
+   Alta, baja, modificación y consulta de prendas de vestir.
+   Control de stock, categorías y variantes de productos.
 *  **Gestión de Compras y Proveedores:**
-  * Registro de proveedores y seguimiento de órdenes de compra para reabastecimiento.
+   Registro de proveedores y seguimiento de órdenes de compra para reabastecimiento.
 *  **Módulo de Facturación y Ventas:**
-  * Registro de ventas en tiempo real con cálculo automático de totales.
+   Registro de ventas en tiempo real con cálculo automático de totales.
 
 ---
 
@@ -34,7 +34,7 @@ implementar control de acceso según el rol del usuario (Administrador y Vendedo
 * **Lenguaje de Programación:** Java (JDK 17)
 * **Interfaz Gráfica (GUI):** Java Swing (JFrame)
 * **Base de Datos:** MySQL
-* **Conector de BD:** JDBC 
+* **Conector de BD:** JDBC `mysql-connector-j`
 * **Entorno de Desarrollo (IDE):** NetBeans 
 * **Control de Versiones:** Git & GitHub
 
@@ -42,13 +42,21 @@ implementar control de acceso según el rol del usuario (Administrador y Vendedo
 
 ##  Arquitectura del Proyecto
 
-El proyecto está estructurado bajo el patrón de diseño **MVC (Modelo-Vista-Controlador)** 
-para garantizar la separación de responsabilidades y la escalabilidad del código:
+El proyecto está organizado bajo la separación de interfaz gráfica (`vista`) y lógica con persistencia en el paquete principal (`pruebamysql`):
 
 ```text
 src/
-├── modelo/         # Clases de entidad (Producto, Venta, Usuario, Proveedor)
-├── vista/          # Formularios e interfaces gráficas en Java Swing (JFrames)
-├── controlador/    # Lógica de negocio y manejadores de eventos
-└── conexion/       # Gestión de la conexión a MySQL vía JDBC
+├── pruebamysql/             # Lógica de negocio, conexión JDBC y operaciones CRUD
+│   ├── Pruebamysql.java     # Clase principal (Main) / Punto de entrada
+│   ├── conectionDB.java     # Gestión de conexión a la base de datos MySQL
+│   ├── Sesion.java          # Control de sesión de usuario en ejecución
+│   ├── Seguridad.java       # Manejo de autenticación y permisos
+│   ├── ItemCombo.java       # Helper para mapear objetos en JComboBox
+│   ├── LineaDetalle.java    # Estructura de detalle para compras y ventas
+│   └── crud*.java           # Módulos de persistencia (Clientes, Productos, Ventas, etc.)
+└── vista/                   # Capa de presentación (Formularios Java Swing)
+    ├── EstiloUI.java        # Configuración de estilos y diseño visual
+    └── Form*.java           # Interfaces gráficas (FormProductos, FormFactura, etc.)
+
+
 
