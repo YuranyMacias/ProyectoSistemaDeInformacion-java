@@ -69,18 +69,18 @@ Entorno de Desarrollo (IDE): NetBeans IDE.
 Controlador JDBC: Conector oficial mysql-connector-j.jar.
 
 **Pasos para la Configuración y Ejecución**
-1. Clonar el repositorio
-Abre la terminal o PowerShell y clona el proyecto en tu máquina local:
+* 1. Clonar el repositorio
+   Abre la terminal o PowerShell y clona el proyecto en tu máquina local:
 
-2. Configurar e Importar la Base de Datos
-Inicia el servicio de MySQL 
-Abrir el gestor de MySQL y crear una nueva base de datos para el proyecto.
-Importa el archivo con extensión .sql ubicado dentro del repositorio para generar la estructura de tablas y datos iniciales.
+* 2. Configurar e Importar la Base de Datos
+   Inicia el servicio de MySQL 
+   Abrir el gestor de MySQL y crear una nueva base de datos para el proyecto.
+   Importa el archivo con extensión .sql ubicado dentro del repositorio para generar la estructura de tablas y datos iniciales.
 
-3. Configurar la Conexión JDBC
-Abrir el proyecto en tu IDE (NetBeans).
-Dirígete a la clase conectionDB.java ubicada en la ruta src/pruebamysql/conectionDB.java.
-Revisa y ajusta las credenciales de la cadena de conexión según los datos de tu servidor local:
+*   3. Configurar la Conexión JDBC
+   Abrir el proyecto en tu IDE (NetBeans).
+   Dirígete a la clase conectionDB.java ubicada en la ruta src/pruebamysql/conectionDB.java.
+   Revisa y ajusta las credenciales de la cadena de conexión según los datos de tu servidor local:
 
 ```text
 String url = "jdbc:mysql://localhost:3306/nombre_de_tu_bd";
@@ -88,8 +88,8 @@ String usuario = "tu_usuario";       // Por defecto suele ser "root"
 String contrasena = "tu_contrasena"; // Tu contraseña local de MySQL
 ```
 
-4. Cargar Librerías e Iniciar la Aplicación
-En NetBeans, ve al panel de navegación del proyecto, haz clic derecho sobre la carpeta Libraries y selecciona Add JAR/Folder...
-Añade el archivo mysql-connector-j.jar (si no aparece ya vinculado).
-Ubica el archivo Pruebamysql.java dentro del paquete pruebamysql.
-Haz clic derecho sobre Pruebamysql.java y selecciona Run File para lanzar la pantalla de inicio de sesión.
+* 4. Cargar Librerías e Iniciar la Aplicación
+   En NetBeans, ve al panel de navegación del proyecto, haz clic derecho sobre la carpeta Libraries y selecciona Add JAR/Folder...
+   Añade el archivo mysql-connector-j.jar (si no aparece ya vinculado).
+   Ubica el archivo Pruebamysql.java dentro del paquete pruebamysql.
+   Haz clic derecho sobre Pruebamysql.java y selecciona Run File para lanzar la pantalla de inicio de sesión.
